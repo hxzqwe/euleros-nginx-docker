@@ -1,7 +1,7 @@
-FROM harbor.chinagci.com/public/euleros:2.5 as build
+FROM hxzqwe/euleros:2.5 as build
 
-LABEL author=chenyifu \
-      mail=chenyifu@chinagci.com
+LABEL author=hxzqwe \
+      mail=hxzqwe@gmail.com
 
 ENV NGINX_VERSION=1.22.0
 ARG CONFIG="\
@@ -27,7 +27,7 @@ RUN set -x \
     && ./configure $CONFIG \
     && make && make install
 
-FROM harbor.chinagci.com/public/euleros:2.5
+FROM hxzqwe/euleros:2.5
 ENV NGINX_HOME=/usr/local/nginx
 ENV PATH="$NGINX_HOME/sbin:$PATH"
 RUN set -x \
